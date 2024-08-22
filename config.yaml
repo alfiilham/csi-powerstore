@@ -1,0 +1,8 @@
+arrays:
+   - endpoint: "https://10.8.230.93/api/rest"
+     globalID: "PSd574f835882e"
+     username: "admin"
+     password: "P@ssw0rd123"
+     skipCertificateValidation: true
+     isDefault: true
+     blockProtocol: "ISCSI"
