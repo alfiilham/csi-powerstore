@@ -1,0 +1,16 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: powerstore-iscsi-storage
+provisioner: csi-powerstore.dellemc.com
+parameters:
+  arrayID: "PSd574f835882e"  # Replace with your actual PowerStore array ID
+  protocol: "ISCSI"  # Specifies that the iSCSI protocol is to be used
+  fsType: "xfs"  # File system type to be used on the volumes
+  thinProvisioned: "true"  # Enable thin provisioning
+  hostIqn: "iqn.1994-05.com.redhat:9644fefa5915"  # Replace with your host's iSCSI IQN
+  storagePool: "Default"  # Name of the storage pool in PowerStore, adjust as needed
+
+reclaimPolicy: Delete  # Delete the PV after the PVC is deleted
+volumeBindingMode: Immediate  # Bind the volume immediately when the PVC is created
+allowVolumeExpansion: true  # Allow volume expansion
